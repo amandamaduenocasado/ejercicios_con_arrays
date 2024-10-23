@@ -52,34 +52,44 @@ containNumbers([1,2,3,4,5])
 
 // Crea una función que reciba un array vacío y lo devuelva con 3 números aleatorios entre 0 y 100.
 
-// EN ESTE CASO ESPECIAL NO ES NECESARIO HACER UNA CONSTANTE PARA CADA UNO DE LOS NÚMEROS. LA ESCRIBIMOS AL PRINCIPIO Y DE AHÍ PODEMOS HACER LOS TRES CÁLCULOS.
+const emptyArray = (array) => {
 
-// NO OLVIDAR LAS LLAMADAS. PRIMERO NOMBRAMOS UNA CONSTANTE NUEVA, DESPUÉS NOMBRADOS LA PRIMERA CONSTANTE QUE HICIMOS, DESPUÉS LLAMAMOS A LA CONSTANTE QUE ACABAMOS DE CREAR 
+  const array1 = Math.floor(Math.random() * 101);
+  const array2 = Math.floor(Math.random() * 101);
+  const array3 = Math.floor(Math.random() * 101);
+  array.push(array1, array2, array3)
 
-const emptyArray = () => [
+  console.log(array);
+}
 
-  Math.floor(Math.random() * 101),
-  Math.floor(Math.random() * 101),
-  Math.floor(Math.random() * 101),
-]
-
-  const randomNumbers =  emptyArray();
-  console.log(randomNumbers);
+emptyArray([]);
 
 
-// Crea una función llamada dniLetter que recibirá un número de DNI sin la letra. Dentro de esa función pon este array ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'] La letra del DNI se calcula a través del resto de dividir el número de DNI entre 23, ese número te dará la posición del array donde se encuentra la letra correspondiente a ese DNI. Imprime por consola el DNI con su letra correspondiente.
+// Crea una función llamada dniLetter que recibirá un número de DNI sin la letra. Dentro de esa función pon este array ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'] La letra del DNI se calcula a través del resto de dividir el número de DNI entre 23, ese número te dará la posición del array donde se encuentra la letra correspondiente a ese DNI. Imprime por consola el DNI con su letra correspondiente. 
 
-const dniLetter = numbers => {
+/* FALLO
+
+const dniLetter = number => {
 
 const receiveNumber = Math.floor(Math.random() * 100000000);
 const receiveLetter = receiveNumber % 23;
-const chooseLetter = numbers[receiveLetter]; /*LO HE HECHO PROBANDO PERO REALMENTE NO SÉ EL POR QUÉ */
+const chooseLetter = numbers[receiveLetter]; 
 
 console.log(`${receiveNumber}${chooseLetter}`);
 
 } 
 
-dniLetter(['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E']);
+dniLetter(['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E']); */
+
+const dniLetter = (number) => {
+  const array = [
+  'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' ];
+
+  const calculateDniLetter = array[number % 23];
+  console.log(number + calculateDniLetter);
+}
+
+dniLetter(77423260);
 
 
 // Crea una función que reciba un array con 3 palabras, debes imprimir por consola un array que contenga la inicial y la última letra de cada palabra en mayúsculas, es decir, si nuestra función recibiera un array con ['hola', 'adios', 'gato'] deberá imprimir por consola ['H', 'A', 'A', 'S', 'G', 'O']
@@ -128,7 +138,7 @@ return  thirdnumber + secondnumber + firstnumber;
 const returnNumbers = (numbers4);
 console.log(returnNumbers); */
 
-// BUENA EJECUCIÓN PARA UN ARRAY 
+/* BUENA EJECUCIÓN PARA UN ARRAY 
 
 const invertNumbers = numbers => {
 
@@ -142,7 +152,15 @@ const result = String(thirdNumber) + String(secondNumber) + String(firstNumber);
 console.log(result);
 }
 
-invertNumbers([1,2,3])
+invertNumbers([1,2,3]) */
+
+//FORMA SIMPLIFICADA CON LA PROPIEDAD REVERSE
+
+const invertNumbers = numbers => {
+  console.log(numbers.reverse());
+};
+
+invertNumbers([1, 2, 3])
 
 // Crea una función que reciba un array con 3 palabras y devuelva un nuevo array con las mismas palabras pero en mayúsculas.
 
@@ -153,4 +171,5 @@ console.log(upperCase);
 
 }
 
-transformWord(['gyoza', 'dumpling', 'wanton']);
+transformWord(['gyoza', 'dumpling', 'wanton']); 
+
